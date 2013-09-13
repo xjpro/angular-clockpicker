@@ -1,7 +1,7 @@
 angular-clockpicker
 ===================
 
-![Clockpicker](/screenshot.png "")
+![Clockpicker](/clockpicker.png "")
 
 Clockpicker is an Angular directive that provides an intuitive way of selecting time. 
 
@@ -15,6 +15,7 @@ function YourController($scope) {
       period: "am"
     };
 })
+```
 ```html
 <ui-clockpicker hour="time.hour" minute="time.minute" period="time.period">
 </ui-clockpicker>
