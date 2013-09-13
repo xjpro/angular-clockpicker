@@ -22,6 +22,7 @@ angular.module("ui.clockpicker", [])
         $scope.periodOptions = ['am', 'pm'];
         $scope.selectionMode = true;
 
+        var toggleOnSelection = true;
         var currentIndex = function() {
           if($scope.selectionMode) {
             for(var i = 0; i < $scope.hourOptions.length; i++) {
@@ -31,12 +32,14 @@ angular.module("ui.clockpicker", [])
           else {
             for(var i = 0; i < $scope.hourOptions.length; i++) {
               if($scope.minuteOptions[i] == $scope.minute) return i;
-              
             }
           }
         };
         $scope.selectValue = function(value) {
           $scope.selectionMode ? $scope.hour = value : $scope.minute = value;
+          if(toggleOnSelection) {
+            $scope.selectionMode = !$scope.selectionMode;
+          }
         };
         $scope.selectPeriod = function(value) {
           $scope.period = value;
