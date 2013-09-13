@@ -22,6 +22,19 @@ angular.module("ui.clockpicker", [])
         $scope.periodOptions = ['am', 'pm'];
         $scope.selectionMode = true;
 
+        var currentIndex = function() {
+          if($scope.selectionMode) {
+            for(var i = 0; i < $scope.hourOptions.length; i++) {
+              if($scope.hourOptions[i] == $scope.hour) return i;
+            }
+          }
+          else {
+            for(var i = 0; i < $scope.hourOptions.length; i++) {
+              if($scope.minuteOptions[i] == $scope.minute) return i;
+              
+            }
+          }
+        };
         $scope.selectValue = function(value) {
           $scope.selectionMode ? $scope.hour = value : $scope.minute = value;
         };
@@ -30,6 +43,10 @@ angular.module("ui.clockpicker", [])
         };
         $scope.togglePeriod = function() {
           $scope.selectPeriod($scope.period == "am" ? "pm" : "am");
+        };
+        $scope.lineStyle = function() {
+          var angle = "rotate(" + (currentIndex() * 30 - 180) + "deg)";
+          return "transform: " + angle + "; -webkit-transform: " + angle;
         };
         $scope.$watch("selectionMode", function(value) {
           $scope.options = value ? $scope.hourOptions : $scope.minuteOptions;
@@ -47,6 +64,7 @@ angular.module("ui.clockpicker", [])
       "<a ng-click='togglePeriod()'>{{period}}</a>\n" +
       "  </div>\n" +
       "  <div class='ui-clockpicker-selector' ng-class='{minute: !selectionMode}'>\n" +
+      "     <div class='ui-clockpicker-line' style='{{lineStyle()}}'></div>" +
       "     <ol class='ui-clockpicker-time'>\n" +
       "       <li ng-repeat='option in options' " +
       "         ng-class='{selected: selectionMode ? hour == option : minute == option }' " +
