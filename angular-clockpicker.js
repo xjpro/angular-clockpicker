@@ -1,28 +1,34 @@
 angular.module("ui.clockpicker", [])
   .controller("ClockPickerTestController", function($scope) {
-    $scope.time = {
-      hour: 1,
-      minute: 30,
-      period: "am"
-    };
+    $scope.time = new Date();
    })
-  .directive("uiClockpicker", function() {
+  .directive("clockpicker", function() {
     return {
       restrict: "EA",
       replace: true,
       templateUrl: "template/clockpicker.html",
       scope: {
-        hour: "=",
-        minute: "=",
-        period: "="
+        datetime: "=ngModel"
       },
       controller: function($scope, $element) {
-        $scope.hourOptions = ['12', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'];
+        $scope.hourOptions = [12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
         $scope.minuteOptions = ['00', '05', '10', '15', '20', '25', '30', '35', '40', '45', '50', '55'];
         $scope.periodOptions = ['am', 'pm'];
         $scope.selectionMode = true;
-
-        var toggleOnSelection = true;
+        
+        var time = $scope.datetime;
+        var timeMatches = /(\d{2}):(\d{2}):(\d{2})/.exec($scope.datetime.toString());
+        
+        $scope.hour = timeMatches[1];
+        $scope.minute = timeMatches[2];
+        $scope.period = "am";
+        
+        if($scope.hour > 12) {
+          $scope.hour = parseInt($scope.hour - 12);
+          $scope.period = "pm";
+        }
+        
+        var toggleOnSelection = false;
         var currentIndex = function() {
           if($scope.selectionMode) {
             for(var i = 0; i < $scope.hourOptions.length; i++) {
@@ -53,6 +59,12 @@ angular.module("ui.clockpicker", [])
         };
         $scope.$watch("selectionMode", function(value) {
           $scope.options = value ? $scope.hourOptions : $scope.minuteOptions;
+        });
+        $scope.$watch("hour + period", function() {
+          $scope.datetime.setHours($scope.period == "pm" ? $scope.hour + 12 : $scope.hour);
+        });
+        $scope.$watch("minute", function(value) {
+          $scope.datetime.setMinutes(value);
         });
       }
     };
