@@ -54,60 +54,60 @@
   font-size: x-large;
 }
 .ui-clockpicker-time li:nth-child(1) {
-  top: 0px;
-  left: 71px
+  top: 0;
+  left: 75px
 }
 .ui-clockpicker-time li:nth-child(2) {
-  top: 12px;
+  top: 16px;
   left: 118px;
 }
 .ui-clockpicker-selector.minute ol.ui-clockpicker-time li:nth-child(2) {
-  left: 114px;
+  left: 113px;
 }
 .ui-clockpicker-time li:nth-child(3) {
   top: 40px;
   left: 149px;
 }
 .ui-clockpicker-selector.minute ol.ui-clockpicker-time li:nth-child(3) {
-  left: 144px;
+  left: 137px;
 }
 .ui-clockpicker-time li:nth-child(4) {
   top: 76px;
   left: 160px;
 }
 .ui-clockpicker-selector.minute ol.ui-clockpicker-time li:nth-child(4) {
-  left: 169px;
+  left: 145px;
 }
 .ui-clockpicker-time li:nth-child(5) {
-  top: 115px;
-  left: 146px;
+  top: 112px;
+  left: 144px;
 }
 .ui-clockpicker-selector.minute ol.ui-clockpicker-time li:nth-child(5) {
-  left: 159px;
+  left: 137px;
 }
 .ui-clockpicker-time li:nth-child(6) {
-  top: 140px;
+  top: 138px;
   left: 118px;
 }
 .ui-clockpicker-selector.minute ol.ui-clockpicker-time li:nth-child(6) {
-  left: 130px;
+  left: 109px;
 }
 .ui-clockpicker-time li:nth-child(7) {
   top: 150px;
   left: 82px
 }
 .ui-clockpicker-selector.minute ol.ui-clockpicker-time li:nth-child(7) {
-  left: 88px;
+  left: 75px;
 }
 .ui-clockpicker-time li:nth-child(8) {
-  top: 142px;
+  top: 138px;
   left: 45px;
 }
 .ui-clockpicker-selector.minute ol.ui-clockpicker-time li:nth-child(8) {
-  left: 45px;
+  left: 41px;
 }
 .ui-clockpicker-time li:nth-child(9) {
-  top: 115px;
+  top: 112px;
   left: 15px;
 }
 .ui-clockpicker-time li:nth-child(10) {
