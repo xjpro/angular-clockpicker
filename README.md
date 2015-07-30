@@ -7,18 +7,14 @@ Clockpicker is an Angular directive that provides an intuitive way of selecting 
 
 ###Usage###
 
-In your controller, create an object or set of objects to contain the picked values.
+In your controller, create a Date object to store the time.
 ```javascript
 function YourController($scope) {
-    $scope.time = {
-      hour: 1,
-      minute: 30,
-      period: "am"
-    };
+    $scope.time = new Date();
 })
 ```
-Give those values to the clockpicker. They will be set when the user selects a time.
+Give that value to the clockpicker to be set when the user selects a time.
 ```
-<ui-clockpicker hour="time.hour" minute="time.minute" period="time.period">
-</ui-clockpicker>
+<clockpicker ng-model="time">
+</clockpicker>
 ```
