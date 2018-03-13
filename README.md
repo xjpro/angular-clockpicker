@@ -5,7 +5,8 @@ angular-clockpicker
 
 Clockpicker is an Angular directive that provides an intuitive way of selecting time.
 
-###Usage###
+Usage
+===================
 
 In your controller, create a Date object to store the time.
 ```javascript
